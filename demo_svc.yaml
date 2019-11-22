@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: Service
+metadata:  
+  name: demo-svc
+  labels:
+    rel: demo
+    app: nginx
+spec:
+  selector:    
+    app: nginx
+    rel: demo
+  type: LoadBalancer
+  ports:  
+  - name: http
+    port: 8760
+    targetPort: 80
+    protocol: TCP

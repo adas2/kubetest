@@ -1,0 +1,22 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: adas-nginx-volume2
+  labels:
+    app: nginx
+    rel: demo
+spec:
+  containers:
+  - name: adas-nginx
+    image: nginx:alpine
+    ports:
+    - containerPort: 80
+    volumeMounts: 
+      - name: test
+        mountPath: /var/test
+  volumes:
+  - name: test
+    hostPath: 
+      path: /Users/a.das/Documents/Projects/tvm_falcon/k8sec/kubetest
+      type: Directory

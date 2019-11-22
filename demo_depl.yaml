@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-depl
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+      rel: demo
+  template:
+    metadata:
+      labels:
+        app: nginx
+        rel: demo
+    spec:
+      containers:
+      - name: adas-nginx
+        image: nginx:1.7.9
+        ports:
+        - containerPort: 80 
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "200m"
